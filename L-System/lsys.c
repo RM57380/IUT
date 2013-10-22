@@ -4,7 +4,7 @@
 #include <math.h>
 
 #include "tortue.h"
-#include "gramm.h"
+#include "grammaire.h"
 #include "inter.h"
 
 int main(int argc, char *argv[])

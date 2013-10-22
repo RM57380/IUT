@@ -4,7 +4,7 @@
 #include <math.h>
 
 #include "inter.h"
-#include "gramm.h"
+#include "grammaire.h"
 #include "tools.h"
 
 /* Interpretation graphique : dessin de la chaîne générée */

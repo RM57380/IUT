@@ -5,7 +5,7 @@
 
 #include "tortue.h"
 #include "pile.h"
-#include "gramm.h"
+#include "grammaire.h"
 
 #define INFINI INT_MAX
 
