@@ -7,10 +7,10 @@
 void grammaire_lire(char *nomfic, Grammaire *g)
 {
   FILE *pfo;
-  pfo=fopen("nomfic", "r");
+  pfo=fopen(nomfic, "r");
 
   /* Vérification de l'ouverture du fichier */
-  if(!pfo)
+  if(pfo == NULL)
     {
       printf("Ouverture du fichier %s impossible\n", nomfic);
       exit(2);
@@ -32,7 +32,7 @@ void grammaire_lire(char *nomfic, Grammaire *g)
   g->num=0 ;
 
   /* Lecture des règles de production */
-  while (fscanf(pfo, "%c.%s\n", &g->car[g->num], g->regle[g->num]) != EOF)
+  while (fscanf(pfo, "%c->%s\n", &g->car[g->num], g->regle[g->num]) != EOF)
     {
       /* Calcul de la longueur de la partie droite de la règle */
       g->long_regle[g->num] = strlen(g->regle[g->num]);
@@ -47,9 +47,16 @@ void grammaire_lire(char *nomfic, Grammaire *g)
 
 void grammaire_afficher(Grammaire g)
 {
-  printf("%s\n", g.nom);
-  printf("%d\n", g.turtle_dir_max);
-  printf("%d\n", g.turtle_dir_init);
-  printf("%s\n", g.axiome);
-  printf("Regles en cours\n");
+  printf("Nom de la grammaire : %s\n", g.nom);
+  printf("Nombre de directions : %d\n", g.turtle_dir_max);
+  printf("Direction initiale : %d\n", g.turtle_dir_init);
+  printf("Axiome : s\n", g.axiome);
+  
+  int i = 0;
+  while (i < 4)
+    {
+      printf("Règles de production %d : ", i+1);
+	printf("%c->%s\n", g.car[i], g.regle[i]);
+      i++;
+    }
 }
