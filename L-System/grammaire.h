@@ -1,25 +1,28 @@
-#ifndef GRAMMAIRE_H_INLCUS
-#define GRAMMAIRE_H_INLCUS
+#ifndef _GRAMMAIRE_H_
+#define _GRAMMAIRE_H
 
-#define CHMAX	80 /* Dimension max d'une lgine du fichier */
-#define NUMMAX	10 /* Nombre de règles de production */
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-/* Grammaire */
+#define MAX_CARAC 79                    /* Dimension max d'une ligne de fichier */
+#define MAX_REGLE 10                    /* Nombre max de regles */
+
 typedef struct
 {
-  char nom[CHMAX];		/* Nom de la fractale */
-  char axiome[CHMAX];		/* Axiome */
-  int num;			/* Nombre de règles de production */
-  char regle[NUMMAX][CHMAX-3];	/* Tableau des parties droites des règles */
-  char car[NUMMAX];		/* Tableau des parties gauches des règles */
-  int long_regle[NUMMAX];	/* Longueur des parties droites des règles */
-  int turtle_dir_max;		/* Nombre de directions possibles pour la tortue */
-  int turtle_dir_init;		/* Direction initiale */
-} Grammaire;
-
+  char titre[MAX_CARAC] ;               /* Nom de la grammaire */
+  int  nb_dir ;                         /* Nombre de direction */
+  char axiome[MAX_CARAC] ;              /* Axiome de la grammaire */
+  char regle[MAX_CARAC][MAX_REGLE] ;    /* Tableau de la partie droite */
+  char car[MAX_CARAC] ;                 /* Tableau de la partie gauche */
+  int  long_regle[MAX_CARAC] ;          /* Taille de la regle */
+  int  turtle_dir_max ;                 /* Nombre de direction maximal de la tortue */
+  int  turtle_dir_init ;                /* Direction initiale de la tortue */
+  
+} Grammaire ;
 
 void grammaire_lire(char *nomfic, Grammaire *g);
 void grammaire_afficher(Grammaire g);
-int grammaire_trouver(Grammaire *g, char cmd);
-
+int  grammaire_trouver(Grammaire *g, char cmd);
+ 
 #endif

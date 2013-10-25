@@ -1,62 +1,48 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-
 #include "grammaire.h"
 
-void grammaire_lire(char *nomfic, Grammaire *g)
-{
-  FILE *pfo;
-  pfo=fopen(nomfic, "r");
-
-  /* Vérification de l'ouverture du fichier */
-  if(pfo == NULL)
-    {
-      printf("Ouverture du fichier %s impossible\n", nomfic);
-      exit(2);
-    }
-
-  /* Lecture du nom de la fractale */
-  fscanf(pfo, "%s\n", g->nom);
+void grammaire_lire(char *nomfic, Grammaire *g) {
+  FILE *pfo ;
+  pfo = fopen((nomfic), "r") ;
   
-  /* Lecture du nombre de directions */
-  fscanf(pfo, "%d\n", &(g->turtle_dir_max));
-
-  /* Lecture de la diretion initiale */
-  fscanf(pfo, "%d\n", &(g->turtle_dir_init));
-
-  /* Lecture de l'axiome */
-  fscanf(pfo, "%s\n", g->axiome);
-
-  /* Aucune règle au départ */
-  g->num=0 ;
-
-  /* Lecture des règles de production */
-  while (fscanf(pfo, "%c->%s\n", &g->car[g->num], g->regle[g->num]) != EOF)
-    {
-      /* Calcul de la longueur de la partie droite de la règle */
-      g->long_regle[g->num] = strlen(g->regle[g->num]);
+  if(!pfo) {
+    printf("Ouverture du fichier %s impossible\n", nomfic);
+    exit(2);
+  }
+  /* lecture nom de a fractale */
+  fscanf(pfo, "%s\n",g->titre);
+  /* lecture nombre de directions */
+  fscanf(pfo,"%d\n",&(g->turtle_dir_max));
+  /* lecture de la direction initiale */
+  fscanf(pfo,"%d\n",&(g->turtle_dir_init));
+  /* lecture de l'axiome */
+  fscanf(pfo,"%s\n",g->axiome);
+  /* aucune regles au depart */
+  g->nb_dir = 0;
+  while (fscanf(pfo, "%c ->%s\n", &(g->car[g->nb_dir]), g->regle[g->nb_dir]) != (EOF))
+    { 
       
-      /* Il y a maintenant une règle de plus... */
-      g->num++;
-
-      /* Le fichier est traité, on le ferme */
-      fclose(pfo);
+      /* calcul de la longueur de la partie droite de la regle */
+      g->long_regle[g->nb_dir] = strlen(g->regle[g->nb_dir]);
+      g->nb_dir++;
     }
+  fclose(pfo);
 }
+
 
 void grammaire_afficher(Grammaire g)
 {
-  printf("Nom de la grammaire : %s\n", g.nom);
-  printf("Nombre de directions : %d\n", g.turtle_dir_max);
+  int i = 0;
+  
+  printf("Nom de la grammaire : %s\n", g.titre);
+  printf("Nombre de directions : %d\n", g.nb_dir);
   printf("Direction initiale : %d\n", g.turtle_dir_init);
   printf("Axiome : s\n", g.axiome);
   
-  int i = 0;
-  while (i < 4)
+  while (i < 10
+	 && strcmp(&g.car[i], ""))
     {
-      printf("Règles de production %d : ", i+1);
-	printf("%c->%s\n", g.car[i], g.regle[i]);
+      printf("Regle de production %d : ", i + 1);
+      printf("%c->%s\n", g.car[i], g.regle[i]);
       i++;
     }
 }
