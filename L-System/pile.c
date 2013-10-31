@@ -1,3 +1,4 @@
+
 #include <stdlib.h>
 #include <malloc.h>
 
@@ -18,4 +19,20 @@ int pile_vide(Pile p)
     return (1);
   return (0);
 }
+
+Pile pile_empiler(Pile p, Tortue *t)
+{
+  Pile pile;
+
+  pile = (Pile) malloc(sizeof(Pile_Cellule));
+  if (pile == NULL){
+    printf("Allocation mémoire impossible...\n");
+    exit(1);
+  }
+  pile->x = t.x;
+  pile->y = t.y;
+  pile->dir = t.dir;
+  pile->suc = p;
+
+  return (pile);
 }
