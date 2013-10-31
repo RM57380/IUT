@@ -1,4 +1,3 @@
-
 #include <stdlib.h>
 #include <malloc.h>
 
@@ -26,7 +25,7 @@ Pile pile_empiler(Pile p, Tortue *t)
 
   pile = (Pile) malloc(sizeof(Pile_Cellule));
   if (pile == NULL){
-    printf("Allocation mémoire impossible...\n");
+    printf("Erreur : Allocation mémoire impossible.\n");
     exit(1);
   }
   pile->x = t.x;
