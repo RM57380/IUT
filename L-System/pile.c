@@ -18,16 +18,4 @@ int pile_vide(Pile p)
     return (1);
   return (0);
 }
-
-void pile_liberer(Pile p)
-{
-  Tortue *t;
-  
-  if (p != NULL)
-  {
-    while ( ! (pile_vide(p)))
-      pile_depiler(p, &t);
-    free(p);
-    p = NULL;
-  }
 }
