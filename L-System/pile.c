@@ -35,3 +35,31 @@ Pile pile_empiler(Pile p, Tortue *t)
 
   return (pile);
 }
+
+
+Pile pile_depiler(Pile p, Tortue *t)
+{
+  Pile pile;
+
+  if (pile == NULL)
+    {
+      printf("Erreur : Suppression impossible.\n");
+      exit(1);
+    }
+
+  pile = t->x;
+  t->x = t->x->suc;
+  free(pile->x);
+
+  pile = t->y;
+  t->y = t->y->suc;
+  free(pile->y);
+
+  pile = t->dir;
+  t->dir = t->dir->suc;
+  free(pile->dir);
+
+  free(pile);
+
+  return (pile);
+}
