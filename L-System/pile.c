@@ -62,3 +62,51 @@ Pile pile_depiler(Pile p, Tortue *t)
 
   return (pile);
 }
+
+/* void pile_afficher(Pile p) */
+/* { */
+/*   int i = 0; */
+
+/*   if (p == NULL) */
+/*     { */
+/*       printf("La pile est vide.\n"); */
+/*       exit(0); */
+/*     } */
+/*   else */
+/*     { */
+/*       while (!(p->suc)) */
+/*      { */
+/*        printf("X : %f, Y : %f et Direction : %d", */
+/*               ptr->x[i], ptr->y[i], ptr->dir[i]); */
+/*        i++; */
+/*      } */
+/*       if ((p->null) == NULL) */
+/*      { */
+/*        printf("Fin de liste.\n"); */
+/*        exit(0); */
+/*      }   */
+/*     } */
+/* } */
+
+void pile_afficher(Pile p)
+{
+  Pile *ptr;
+
+  if (p == NULL)
+    {
+      printf("La pile est vide.\n");
+      exit(0);
+    }
+  else
+    {
+      ptr = p->suc;
+      while(ptr != NULL)
+        {
+          printf("X: %f, Y: %f, Direction: %d", p->x, p->y, p->dir);
+          ptr = p->suc;
+        }
+      if(ptr == NULL)
+        printf("X: %f, Y: %f, Direction: %d", ptr.x, ptr.y, ptr.dir);
+    }
+  exit(0);
+}
