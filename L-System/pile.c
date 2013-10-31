@@ -63,6 +63,11 @@ Pile pile_depiler(Pile p, Tortue *t)
   return (pile);
 }
 
+void liberer_pile(Pile p)
+{
+  free(p);
+}
+
 /* void pile_afficher(Pile p) */
 /* { */
 /*   int i = 0; */
