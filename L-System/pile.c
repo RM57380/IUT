@@ -36,7 +36,6 @@ Pile pile_empiler(Pile p, Tortue *t)
   return (pile);
 }
 
-
 Pile pile_depiler(Pile p, Tortue *t)
 {
   Pile pile;
