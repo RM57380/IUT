@@ -46,3 +46,22 @@ void grammaire_afficher(Grammaire g)
       i++;
     }
 }
+
+int grammaire_trouver(Grammaire *g, char cmd)
+{
+  int i =0;
+  int j;
+  
+  while(g->car[i] != NULL
+        && t==0)
+  {
+     if(g->car[i] == cmd)
+     {
+     	t=1;
+     	i++;
+     }
+   }
+  if(!t)
+     return i;
+  return (-1);
+}
