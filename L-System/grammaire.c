@@ -51,17 +51,18 @@ int grammaire_trouver(Grammaire *g, char cmd)
 {
   int i =0;
   int j;
-  
-  while(g->car[i] != NULL
-        && t==0)
-  {
-     if(g->car[i] == cmd)
-     {
-     	t=1;
-     	i++;
-     }
-   }
-  if(!t)
-     return i;
+
+  /* Ligne a verifier */
+  while(&g->car[i] != NULL
+        && j == 0)
+    {
+      if(g->car[i] == cmd)
+        {
+          j = 1;
+          i++;
+        }
+    }
+  if(!j)
+    return (i);
   return (-1);
 }
