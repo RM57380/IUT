@@ -28,9 +28,10 @@ Pile pile_empiler(Pile p, Tortue *t)
     printf("Erreur : Allocation mémoire impossible.\n");
     exit(1);
   }
-  pile->x = t.x;
-  pile->y = t.y;
-  pile->dir = t.dir;
+  /* Points de droite remplaces par fleches */
+  pile->x = t->x;
+  pile->y = t->y;
+  pile->dir = t->dir;
   pile->suc = p;
 
   return (pile);
@@ -55,6 +56,7 @@ Pile pile_depiler(Pile p, Tortue *t)
   free(pile->y);
 
   pile = t->dir;
+  /* Avant chang = t->dir = t->dir->suc */
   t->dir = t->dir->suc;
   free(pile->dir);
 
@@ -68,31 +70,6 @@ void liberer_pile(Pile p)
   free(p);
 }
 
-/* void pile_afficher(Pile p) */
-/* { */
-/*   int i = 0; */
-
-/*   if (p == NULL) */
-/*     { */
-/*       printf("La pile est vide.\n"); */
-/*       exit(0); */
-/*     } */
-/*   else */
-/*     { */
-/*       while (!(p->suc)) */
-/*      { */
-/*        printf("X : %f, Y : %f et Direction : %d", */
-/*               ptr->x[i], ptr->y[i], ptr->dir[i]); */
-/*        i++; */
-/*      } */
-/*       if ((p->null) == NULL) */
-/*      { */
-/*        printf("Fin de liste.\n"); */
-/*        exit(0); */
-/*      }   */
-/*     } */
-/* } */
-
 void pile_afficher(Pile p)
 {
   Pile *ptr;
@@ -104,14 +81,15 @@ void pile_afficher(Pile p)
     }
   else
     {
-      ptr = p->suc;
+      *ptr = p->suc;
       while(ptr != NULL)
         {
           printf("X: %f, Y: %f, Direction: %d", p->x, p->y, p->dir);
-          ptr = p->suc;
+          /* Ajout de & devant */
+          ptr = &p->suc;
         }
       if(ptr == NULL)
-        printf("X: %f, Y: %f, Direction: %d", ptr.x, ptr.y, ptr.dir);
+        printf("X: %f, Y: %f, Direction: %d", ptr->x, ptr->y, ptr->dir);
     }
   exit(0);
 }
