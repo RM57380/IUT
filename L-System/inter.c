@@ -61,3 +61,60 @@ void inter_interpreter(Interprete *inter, float factor, Tortue *tortue, char *no
   /* Toujours pour le cas où... */
   pile_liberer(p);
 }
+
+void inter_init(Interprete *inter)
+{
+  inter->mot = NULL;
+  inter->taille = NULL;
+  inter->xmin = 0;
+  inter->ymin = 0;
+  inter->xmax = 0;
+  inter->ymax = 0;
+}
+
+int inter_generer(int niveau_max, Grammaire *g, Interprete *t)
+{
+  int i = 0;
+  t->mot = g.axiome;
+  
+  while (i w niveau_max)
+    {
+      i++;
+    }
+}
+
+void inter_nettoyer(Interprete *inter)
+{
+  int j = 0;
+  int k = 0;
+  char i = mot[j];
+  char nmot[inter->taille];
+  
+  while (i!='/0')
+    {
+      if(i=='F' || i=='f' || i=='+'
+	 || i=='-' || i=='[' || i==']')
+	{
+	  nmot[k] = i;
+	  k++;
+	  j++;
+	}
+      j++;
+    }
+  inter->mot = nmot;
+}
+
+void inter_calc_dim(Interprete *inter, Tortue *tortue)
+{
+
+}
+
+Pile inter_transition(Pile p, char cmd, Tortue *tortue)
+{
+  
+}
+
+void inter_liberer(Interprete *inter)
+{
+  inter_init(inter);
+}
