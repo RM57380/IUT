@@ -99,7 +99,9 @@ void pile_afficher(Pile p)
     {
       while (ptr->suc != NULL)
 	{
-	  printf("Les coordonnées de x : %f\n Les coordonnées de y :%f\nLa direction de la Tortue :%d\n", ptr->x , ptr->y, ptr->dir);
+	  printf("Les coordonnées de x est %f\n", ptr->x);
+	  printf("Les coordonnées de y est %f\n", ptr->y);
+	  printf("La direction de la Tortue est %d\n", ptr->dir);
 	  ptr = ptr->suc;
 	}
     }
