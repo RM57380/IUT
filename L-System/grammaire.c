@@ -36,10 +36,9 @@ void grammaire_afficher(Grammaire g)
   printf("Nom de la grammaire : %s\n", g.titre);
   printf("Nombre de directions : %d\n", g.nb_dir);
   printf("Direction initiale : %d\n", g.turtle_dir_init);
-  printf("Axiome : s\n", g.axiome);
+  printf("Axiome : %s\n", g.axiome);
   
-  while (i < 10
-	 && strcmp(&g.car[i], ""))
+  while (i < g.nb_dir)
     {
       printf("Regle de production %d : ", i + 1);
       printf("%c->%s\n", g.car[i], g.regle[i]);

@@ -24,11 +24,11 @@ Pile pile_empiler(Pile p, Tortue *t)
   Pile pile;
 
   pile = (Pile) malloc(sizeof(Pile_Cellule));
-  if (pile == NULL){
-    printf("Erreur : Allocation mémoire impossible.\n");
-    exit(1);
-  }
-  /* Points de droite remplaces par fleches */
+  if (pile == NULL)
+    {
+      printf("Erreur : Allocation mémoire impossible.\n");
+      exit(1);
+    }
   pile->x = t->x;
   pile->y = t->y;
   pile->dir = t->dir;
@@ -39,28 +39,45 @@ Pile pile_empiler(Pile p, Tortue *t)
 
 Pile pile_depiler(Pile p, Tortue *t)
 {
-  Pile pile;
+  Pile pile = p;
 
   if (pile == NULL)
     {
       printf("Erreur : Suppression impossible.\n");
       exit(1);
+    } 
+  else
+    {
+      t->x = pile->suc->x;
+      t->y = pile->suc->y;
+      t->dir = pile->suc->dir;
+      pile = pile->suc;
+      free(p);
     }
+  return (pile);
 
-  pile = t->x;
-  t->x = t->x->suc;
-  free(pile->x);
+  /* Pile pile;
 
-  pile = t->y;
-  t->y = t->y->suc;
-  free(pile->y);
+  /* if (pile == NULL) */
+  /*   { */
+  /*     printf("Erreur : Suppression impossible.\n"); */
+  /*     exit(1); */
+  /*   } */
 
-  pile = t->dir;
-  /* Avant chang = t->dir = t->dir->suc */
-  t->dir = t->dir->suc;
-  free(pile->dir);
+  /* pile = t->x; */
+  /* t->x = t->x->suc; */
+  /* free(pile->x); */
 
-  free(pile);
+  /* pile = t->y; */
+  /* t->y = t->y->suc; */
+  /* free(pile->y); */
+
+  /* pile = t->dir; */
+  /* /\* Avant chang = t->dir = t->dir->suc *\/ */
+  /* t->dir = t->dir->suc; */
+  /* free(pile->dir); */
+
+  /* free(pile); */
 
   return (pile);
 }
@@ -72,24 +89,39 @@ void liberer_pile(Pile p)
 
 void pile_afficher(Pile p)
 {
-  Pile *ptr;
-
+  Pile ptr = p;
   if (p == NULL)
     {
-      printf("La pile est vide.\n");
+      printf("La pile est vide\n");
       exit(0);
     }
   else
     {
-      *ptr = p->suc;
-      while(ptr != NULL)
-        {
-          printf("X: %f, Y: %f, Direction: %d", p->x, p->y, p->dir);
-          /* Ajout de & devant */
-          ptr = &p->suc;
-        }
-      if(ptr == NULL)
-        printf("X: %f, Y: %f, Direction: %d", ptr->x, ptr->y, ptr->dir);
+      while (ptr->suc != NULL)
+	{
+	  printf("Les coordonnées de x : %f\n Les coordonnées de y :%f\nLa direction de la Tortue :%d\n", ptr->x , ptr->y, ptr->dir);
+	  ptr = ptr->suc;
+	}
     }
-  exit(0);
+
+  /* Pile *ptr; */
+
+  /* if (p == NULL) */
+  /*   { */
+  /*     printf("La pile est vide.\n"); */
+  /*     exit(0); */
+  /*   } */
+  /* else */
+  /*   { */
+  /*     *ptr = p->suc; */
+  /*     while(ptr != NULL) */
+  /*       { */
+  /*         printf("X: %f, Y: %f, Direction: %d", p->x, p->y, p->dir); */
+  /*         /\* Ajout de & devant *\/ */
+  /*         ptr = &p->suc; */
+  /*       } */
+  /*     if(ptr == NULL) */
+  /*       printf("X: %f, Y: %f, Direction: %d", ptr->x, ptr->y, ptr->dir); */
+  /*   } */
+  /* exit(0); */
 }

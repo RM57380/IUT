@@ -5,6 +5,6 @@ int main(int ac, char **av)
 
   grammaire_lire(av[1], &g);
   grammaire_afficher(g);
-  
+
   return (0);
 }
