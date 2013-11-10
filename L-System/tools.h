@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 /* Alloue dynamiquement la place pour une chaine de caracteres */
 char *tools_nouvelle_chaine(int length);
 

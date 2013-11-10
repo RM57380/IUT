@@ -4,8 +4,8 @@
 #include <math.h>
 
 #include "inter.h"
-#include "grammaire.h"
-#include "tools.h"
+#include "tortue.h"
+#include "pile.h"
 
 /* Interpretation graphique : dessin de la chaîne générée */
 void inter_interpreter(Interprete *inter, float factor, Tortue *tortue, char *nom_fichier)
@@ -65,7 +65,7 @@ void inter_interpreter(Interprete *inter, float factor, Tortue *tortue, char *no
 void inter_init(Interprete *inter)
 {
   inter->mot = NULL;
-  inter->taille = NULL;
+  inter->taille = 0;
   inter->xmin = 0;
   inter->ymin = 0;
   inter->xmax = 0;
@@ -75,9 +75,9 @@ void inter_init(Interprete *inter)
 int inter_generer(int niveau_max, Grammaire *g, Interprete *t)
 {
   int i = 0;
-  t->mot = g.axiome;
+  t->mot = g->axiome;
   
-  while (i w niveau_max)
+  while (i < niveau_max)
     {
       i++;
     }
@@ -87,13 +87,13 @@ void inter_nettoyer(Interprete *inter)
 {
   int j = 0;
   int k = 0;
-  char i = mot[j];
+  char i = inter->mot[j];
   char nmot[inter->taille];
-  
-  while (i!='/0')
+
+  while (i != '\0')
     {
-      if(i=='F' || i=='f' || i=='+'
-	 || i=='-' || i=='[' || i==']')
+      if(i == 'F' || i == 'f' || i == '+'
+	 || i == '-' || i == '[' || i == ']')
 	{
 	  nmot[k] = i;
 	  k++;
@@ -104,15 +104,15 @@ void inter_nettoyer(Interprete *inter)
   inter->mot = nmot;
 }
 
-void inter_calc_dim(Interprete *inter, Tortue *tortue)
-{
+/* void inter_calc_dim(Interprete *inter, Tortue *tortue) */
+/* { */
 
-}
+/* } */
 
-Pile inter_transition(Pile p, char cmd, Tortue *tortue)
-{
+/* Pile inter_transition(Pile p, char cmd, Tortue *tortue) */
+/* { */
   
-}
+/* } */
 
 void inter_liberer(Interprete *inter)
 {

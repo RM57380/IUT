@@ -3,8 +3,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include "tortue.h"
-#include "grammaire.h"
 #include "inter.h"
 
 int main(int argc, char *argv[])
