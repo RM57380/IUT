@@ -49,8 +49,8 @@ void inter_interpreter(Interprete *inter, float factor, Tortue *tortue, char *no
       y = factor * (tortue->y - inter->ymin);
 
       if (cmd == 'F')
-	fprintf(fp, "    <line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\"/>\n",
-		xprec, yprec, x, y);
+        fprintf(fp, "    <line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\"/>\n",
+                xprec, yprec, x, y);
     }
 
   /* Fermeture du fichier SVG */
@@ -93,26 +93,26 @@ void inter_nettoyer(Interprete *inter)
   while (i != '\0')
     {
       if(i == 'F' || i == 'f' || i == '+'
-	 || i == '-' || i == '[' || i == ']')
-	{
-	  nmot[k] = i;
-	  k++;
-	  j++;
-	}
+         || i == '-' || i == '[' || i == ']')
+        {
+          nmot[k] = i;
+          k++;
+          j++;
+        }
       j++;
     }
   inter->mot = nmot;
 }
 
-/* void inter_calc_dim(Interprete *inter, Tortue *tortue) */
-/* { */
+void inter_calc_dim(Interprete *inter, Tortue *tortue)
+{
+ Tortue *t = tortue;
+}
 
-/* } */
-
-/* Pile inter_transition(Pile p, char cmd, Tortue *tortue) */
-/* { */
-  
-/* } */
+Pile inter_transition(Pile p, char cmd, Tortue *tortue)
+{
+  return (p);
+}
 
 void inter_liberer(Interprete *inter)
 {
