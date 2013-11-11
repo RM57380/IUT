@@ -55,31 +55,6 @@ Pile pile_depiler(Pile p, Tortue *t)
       free(p);
     }
   return (pile);
-
-  /* Pile pile;
-
-  /* if (pile == NULL) */
-  /*   { */
-  /*     printf("Erreur : Suppression impossible.\n"); */
-  /*     exit(1); */
-  /*   } */
-
-  /* pile = t->x; */
-  /* t->x = t->x->suc; */
-  /* free(pile->x); */
-
-  /* pile = t->y; */
-  /* t->y = t->y->suc; */
-  /* free(pile->y); */
-
-  /* pile = t->dir; */
-  /* /\* Avant chang = t->dir = t->dir->suc *\/ */
-  /* t->dir = t->dir->suc; */
-  /* free(pile->dir); */
-
-  /* free(pile); */
-
-  return (pile);
 }
 
 void liberer_pile(Pile p)
@@ -105,25 +80,4 @@ void pile_afficher(Pile p)
 	  ptr = ptr->suc;
 	}
     }
-
-  /* Pile *ptr; */
-
-  /* if (p == NULL) */
-  /*   { */
-  /*     printf("La pile est vide.\n"); */
-  /*     exit(0); */
-  /*   } */
-  /* else */
-  /*   { */
-  /*     *ptr = p->suc; */
-  /*     while(ptr != NULL) */
-  /*       { */
-  /*         printf("X: %f, Y: %f, Direction: %d", p->x, p->y, p->dir); */
-  /*         /\* Ajout de & devant *\/ */
-  /*         ptr = &p->suc; */
-  /*       } */
-  /*     if(ptr == NULL) */
-  /*       printf("X: %f, Y: %f, Direction: %d", ptr->x, ptr->y, ptr->dir); */
-  /*   } */
-  /* exit(0); */
 }

@@ -106,7 +106,7 @@ void inter_nettoyer(Interprete *inter)
 
 void inter_calc_dim(Interprete *inter, Tortue *tortue)
 {
- Tortue *t = tortue;
+  Tortue *t = tortue;
 }
 
 Pile inter_transition(Pile p, char cmd, Tortue *tortue)
