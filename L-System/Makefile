@@ -1,5 +1,5 @@
 PGM = programme
-OBJS = grammaire.c  inter.c  lsys.c  pile.c  tools.c  tortue.c
+OBJS = grammaire.o  inter.o  lsys.o  pile.o  tools.o  tortue.o
 
 # Rien à modifier à partir d'ici a priori
 
