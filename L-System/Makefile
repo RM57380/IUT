@@ -1,5 +1,5 @@
 CC = gcc
-OBJS = grammaire.o inter.o lsys.o  pile.o  tools.o  tortue.o
+OBJS = inter.o  grammaire.o lsys.o  pile.o  tools.o  tortue.o
 CFLAGS = -W -Wall -ansi -pedantic
 LDFLAGS =
 PGM = programme
