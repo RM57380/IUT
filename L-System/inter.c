@@ -59,7 +59,7 @@ void inter_interpreter(Interprete *inter, float factor, Tortue *tortue, char *no
   fclose(fp);
 
   /* Toujours pour le cas où... */
-  pile_liberer(p);
+  /* pile_liberer(p); */
 }
 
 void inter_init(Interprete *inter)
@@ -78,9 +78,7 @@ int inter_generer(int niveau_max, Grammaire *g, Interprete *t)
   t->mot = g->axiome;
   
   while (i < niveau_max)
-    {
-      i++;
-    }
+    i++;
 }
 
 void inter_nettoyer(Interprete *inter)
