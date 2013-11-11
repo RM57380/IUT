@@ -18,11 +18,11 @@ typedef struct
   int  long_regle[MAX_CARAC];          /* Taille de la regle */
   int  turtle_dir_max;                 /* Nombre de direction maximal de la tortue */
   int  turtle_dir_init;                /* Direction initiale de la tortue */
-  
+
 }Grammaire;
 
 void grammaire_lire(char *nomfic, Grammaire *g);
 void grammaire_afficher(Grammaire g);
 int  grammaire_trouver(Grammaire *g, char cmd);
- 
+
 #endif
