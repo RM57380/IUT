@@ -1,10 +1,12 @@
 #include "grammaire.h"
 
-void grammaire_lire(char *nomfic, Grammaire *g) {
-  FILE *pfo ;
-  pfo = fopen((nomfic), "r") ;
+void grammaire_lire(char *nomfic, Grammaire *g)
+{
+  FILE *pfo;
+  pfo = fopen((nomfic), "r");
   
-  if(!pfo) {
+  if(!pfo)
+  {
     printf("Ouverture du fichier %s impossible\n", nomfic);
     exit(2);
   }
@@ -19,7 +21,7 @@ void grammaire_lire(char *nomfic, Grammaire *g) {
   /* aucune regles au depart */
   g->nb_dir = 0;
   while (fscanf(pfo, "%c ->%s\n", &(g->car[g->nb_dir]), g->regle[g->nb_dir]) != (EOF))
-    { 
+    {
       
       /* calcul de la longueur de la partie droite de la regle */
       g->long_regle[g->nb_dir] = strlen(g->regle[g->nb_dir]);
